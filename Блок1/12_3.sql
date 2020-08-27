@@ -1,0 +1,7 @@
+USE productsdb
+GO
+DROP TRIGGER Products_INSERT_UPDATE
+
+--DISABLE TRIGGER Products_INSERT_UPDATE ON Products
+
+--ENABLE TRIGGER Products_INSERT_UPDATE ON Products
