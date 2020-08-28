@@ -20,11 +20,11 @@ VALUES
     (SELECT Id FROM Customers WHERE FirstName='Лук'),
 	(SELECT Id FROM Sellers WHERE FirstName='Брокколи'),
 	'2020-08-28'
+),
+( 
+	'Нелегальная продажа орехов в фруктовый сад',
+	1000000,
+    (SELECT Id FROM Customers WHERE FirstName='Фундук'),
+	(SELECT Id FROM Sellers WHERE FirstName='Арбуз'),
+	'2020-08-28'
 )
---( 
---	'Нелегальная продажа орехов в фруктовый сад',
---	1000000,
---    (SELECT Id FROM Customers WHERE FirstName='Фундук'),
---	(SELECT Id FROM Sellers WHERE FirstName='Арбуз'),
---	'2020-08-28'
---)
