@@ -1,2 +1,2 @@
-USE productsdb;
+USE Belov_ASproductsdb;
 EXEC SelectByCity @City='Фруктовый сад'

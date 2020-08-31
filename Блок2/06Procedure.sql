@@ -1,4 +1,4 @@
-USE productsdb;
+USE Belov_ASproductsdb;
 GO
 CREATE PROCEDURE SelectByCity
     @City NVARCHAR(30)

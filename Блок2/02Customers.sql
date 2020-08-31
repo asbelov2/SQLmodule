@@ -1,3 +1,5 @@
+USE Belov_ASproductsdb;
+
 INSERT INTO Customers
 VALUES 
 ('Фундук', 'Арахисов', 'Грецкович', 'Ореховск'),

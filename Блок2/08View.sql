@@ -1,3 +1,5 @@
+USE Belov_ASproductsdb;
+
 GO
 CREATE VIEW SellersSummary AS
 SELECT Sellers.Id,

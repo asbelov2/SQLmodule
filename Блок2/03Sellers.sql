@@ -1,3 +1,5 @@
+USE Belov_ASproductsdb;
+
 INSERT INTO Sellers
 VALUES 
 ('јрбуз', 'яблоков', 'ƒыневич', '‘руктовый сад', 0.15),

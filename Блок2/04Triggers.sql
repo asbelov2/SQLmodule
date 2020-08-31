@@ -1,4 +1,4 @@
-USE productsdb
+USE Belov_ASproductsdb
 GO
 CREATE TRIGGER Orders_INSERT
 ON Orders
@@ -9,13 +9,13 @@ SELECT 1 FROM INSERTED WHERE
 (SELECT City FROM Customers WHERE Id=INSERTED.CustomerId)<>(SELECT City FROM Sellers WHERE Id=INSERTED.SellerId)
 ))
 	BEGIN
-		INSERT INTO Orders (Description, Sum, CustomerId, SellerId, CreatedAt)
-		SELECT Description, Sum, CustomerId, SellerId, CreatedAt FROM INSERTED
+		INSERT INTO Orders (Description, Sum, CustomerId, SellerId, OrderDate)
+		SELECT Description, Sum, CustomerId, SellerId, OrderDate FROM INSERTED
 		INSERT INTO OrderHistory (Operation, CustomerId, SellerId, OrderDate)
 		SELECT 'INSERT', 
 			CustomerId, 
 			SellerId,
-			CreatedAt
+			OrderDate
 		FROM INSERTED
 	END
 ELSE
@@ -30,7 +30,7 @@ INSERT INTO OrderHistory (Operation, CustomerId, SellerId, OrderDate)
 SELECT 'DELETE', 
 			CustomerId, 
 			SellerId,
-			CreatedAt
+			OrderDate
 FROM DELETED
 
 GO
@@ -43,13 +43,13 @@ SELECT 1 FROM INSERTED WHERE
 (SELECT City FROM Customers WHERE Id=INSERTED.CustomerId)<>(SELECT City FROM Sellers WHERE Id=INSERTED.SellerId)
 ))
 	BEGIN
-		INSERT INTO Orders (Description, Sum, CustomerId, SellerId, CreatedAt)
-		SELECT Description, Sum, CustomerId, SellerId, CreatedAt FROM INSERTED
+		INSERT INTO Orders (Description, Sum, CustomerId, SellerId, OrderDate)
+		SELECT Description, Sum, CustomerId, SellerId, OrderDate FROM INSERTED
 		INSERT INTO OrderHistory (Operation, CustomerId, SellerId, OrderDate)
 		SELECT 'INSERT', 
 			CustomerId, 
 			SellerId,
-			CreatedAt
+			OrderDate
 		FROM INSERTED
 	END
 ELSE
