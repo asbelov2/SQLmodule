@@ -43,10 +43,16 @@ SELECT 1 FROM INSERTED WHERE
 (SELECT City FROM Customers WHERE Id=INSERTED.CustomerId)<>(SELECT City FROM Sellers WHERE Id=INSERTED.SellerId)
 ))
 	BEGIN
-		INSERT INTO Orders (Description, Sum, CustomerId, SellerId, OrderDate)
+		UPDATE Orders 
+		SET Description = (SELECT Description FROM INSERTED WHERE INSERTED.Id = Orders.Id), 
+		Sum = (SELECT Sum FROM INSERTED WHERE INSERTED.Id = Orders.Id), 
+		CustomerId = (SELECT CustomerId FROM INSERTED WHERE INSERTED.Id = Orders.Id), 
+		SellerId = (SELECT SellerId FROM INSERTED WHERE INSERTED.Id = Orders.Id), 
+		OrderDate = (SELECT OrderDate FROM INSERTED WHERE INSERTED.Id = Orders.Id)
+		WHERE Id = (SELECT Id FROM INSERTED)
 		SELECT Description, Sum, CustomerId, SellerId, OrderDate FROM INSERTED
 		INSERT INTO OrderHistory (Operation, CustomerId, SellerId, OrderDate)
-		SELECT 'INSERT', 
+		SELECT 'UPDATE', 
 			CustomerId, 
 			SellerId,
 			OrderDate
