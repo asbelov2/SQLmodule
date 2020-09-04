@@ -1,0 +1,1 @@
+EXECUTE sp_addsrvrolemember Имя, sysadmin

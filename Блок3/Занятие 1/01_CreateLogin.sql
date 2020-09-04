@@ -1,0 +1,1 @@
+CREATE LOGIN хЛЪ WITH PASSWORD ='оюпнкэ'
